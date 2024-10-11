@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "f7c8394b-05aa-4ceb-949c-72b061df91ad",
+		"name": "aps_3_flask_mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33628259"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"João da Silva\",\n    \"cpf\": \"111.222.333-44\",\n    \"data_nascimento\": \"1980-05-21\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/6706abe375da184e27660430",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"6706abe375da184e27660430"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"João Atualizado\",\n    \"cpf\": \"111.222.333-44\",\n    \"data_nascimento\": \"1980-05-21\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/6706abe375da184e27660430",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"6706abe375da184e27660430"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/6706abe375da184e27660430",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"6706abe375da184e27660430"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Bike",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cidade\": \"São Paulo\",\n    \"marca\": \"Speed\",\n    \"modelo\": \"Race Bike\",\n    \"status\": \"disponível\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bikes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Bike",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/6706ab7f75da184e2766042a",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"6706ab7f75da184e2766042a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Bike",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Atualizado\",\n    \"modelo\": \"Mountain Bike\",\n    \"cidade\": \"São Paulo\",\n    \"status\": \"disponivel\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/670822dc855c4d111cd097b4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"670822dc855c4d111cd097b4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Bike",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/6706ab7f75da184e2766042a",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"6706ab7f75da184e2766042a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Emprestimo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/emprestimos/usuarios/6706abe375da184e27660430/bikes/670826e4a73803226e78b5d4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"emprestimos",
+						"usuarios",
+						"6706abe375da184e27660430",
+						"bikes",
+						"670826e4a73803226e78b5d4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Emprestimos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/emprestimos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"emprestimos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Emprestimo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/emprestimos/6709566ccd54a5ffa46fd18f",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"emprestimos",
+						"6709566ccd54a5ffa46fd18f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
