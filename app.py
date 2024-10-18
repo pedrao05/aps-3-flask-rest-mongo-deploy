@@ -17,9 +17,15 @@ mongo = PyMongo(app, tlsAllowInvalidCertificates=True, tls=True)
 @app.route('/bikes', methods=['POST'])
 def cadastrar_bike():
     try:
-        data = request.json
-        if not all(key in data for key in ("marca", "modelo", "cidade", "status")):
-            return jsonify({"erro": "Dados incompletos. Os campos 'marca', 'modelo', 'cidade' e 'status' são obrigatórios."}), 400
+        data = request.get_json()
+
+        if not data:
+            return jsonify({"erro": "Nenhum dado foi enviado. Por favor, forneça os dados da bicicleta."}), 400
+
+        campos_obrigatorios = ["marca", "modelo", "cidade", "status"]
+        for campo in campos_obrigatorios:
+            if campo not in data or not data[campo].strip():
+                return jsonify({"erro": f"O campo '{campo}' é obrigatório e não pode estar vazio."}), 400
 
         bike_id = mongo.db.bikes.insert_one(data)
         data['_id'] = str(bike_id.inserted_id)
@@ -60,10 +66,14 @@ def get_bike(id):
 @app.route('/bikes/<id>', methods=['PUT'])
 def atualizar_bike(id):
     try:
-        data = request.json
-
+        data = request.get_json()
         if not data:
             return jsonify({"erro": "Dados para atualização não fornecidos"}), 400
+
+        campos_obrigatorios = ["marca", "modelo", "cidade", "status"]
+        for campo in campos_obrigatorios:
+            if campo not in data or not data[campo].strip():
+                return jsonify({"erro": f"O campo '{campo}' é obrigatório e não pode estar vazio."}), 400
 
         bike = mongo.db.bikes.find_one({"_id": ObjectId(id)})
         if bike:
@@ -95,9 +105,19 @@ def deletar_bike(id):
 @app.route('/usuarios', methods=['POST'])
 def cadastrar_usuario():
     try:
-        data = request.json
-        if not all(key in data for key in ("nome", "cpf", "data_nascimento")):
-            return jsonify({"erro": "Dados incompletos. Os campos 'nome', 'cpf' e 'data_nascimento' são obrigatórios."}), 400
+        data = request.get_json()
+
+        if not data:
+            return jsonify({"erro": "Nenhum dado foi enviado. Por favor, forneça os seus dados."}), 400
+
+        campos_obrigatorios = ["nome", "cpf", "data_nascimento"]
+        for campo in campos_obrigatorios:
+            if campo not in data or not data[campo].strip():
+                return jsonify({"erro": f"O campo '{campo}' é obrigatório e não pode estar vazio."}), 400
+
+        cpf_existe = mongo.db.usuarios.find_one({"cpf": data['cpf']})
+        if cpf_existe:
+            return jsonify({"erro": "Já existe um usuário com este CPF."}), 400
 
         usuario_id = mongo.db.usuarios.insert_one(data)
         data['_id'] = str(usuario_id.inserted_id)
@@ -138,10 +158,19 @@ def get_usuario(id):
 @app.route('/usuarios/<id>', methods=['PUT'])
 def atualizar_usuario(id):
     try:
-        data = request.json
-
+        data = request.get_json()
         if not data:
             return jsonify({"erro": "Dados para atualização não fornecidos"}), 400
+
+        campos_obrigatorios = ["nome", "cpf", "data_nascimento"]
+        for campo in campos_obrigatorios:
+            if campo not in data or not data[campo].strip():
+                return jsonify({"erro": f"O campo '{campo}' é obrigatório e não pode estar vazio."}), 400
+
+
+            cpf_existe = mongo.db.usuarios.find_one({"cpf": data['cpf'], "_id": {"$ne": ObjectId(id)}})
+            if cpf_existe:
+                return jsonify({"erro": "Já existe outro usuário com este CPF."}), 400
 
         usuario = mongo.db.usuarios.find_one({"_id": ObjectId(id)})
         if usuario:
