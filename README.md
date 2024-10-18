@@ -5,9 +5,9 @@
 Apenas um precisa entregar, porém os dois precisam ter commits no repositório.
 Adicione o nome dos integrantes aqui no README.md.
 
-Integrante 1:
+Integrante 1: Gabriel Moreira
 
-Integrante 2:
+Integrante 2: Pedro Olivieri
 
 ## Aluguel de Bicicletas Compartilhadas com Histórico de Empréstimos
 
